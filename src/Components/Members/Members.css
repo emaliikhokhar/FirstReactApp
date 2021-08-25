@@ -1,0 +1,63 @@
+.button {
+    width: 200px;
+    height: 40px;
+    margin: 1%;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-size: 20px;
+    
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.td-header{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.del-btn{
+    background-color: tomato;
+    margin-top: -10px;
+    width: 200px;
+    height: 40px;
+    margin: 1%;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-size: 20px;
+}
+
+.td-data {
+    font-size: 20px;
+    height: 40px;
+    text-align: left;
+    width: 550px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    grid-gap: 10px;
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    grid-gap: 10px;
+}
+
+.name{
+    margin-left: -50px;
+}
+
+.phone{
+    margin-left: 0px;
+}
