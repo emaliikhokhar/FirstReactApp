@@ -18,7 +18,6 @@ class App extends Component {
 
   deleteHandler = (memberID) => {
     let ml = this.state.MembersList;
-    console.log(ml);
     let mIndex = 0;
     ml.forEach((member, index) => {
       if(memberID === member.id)
