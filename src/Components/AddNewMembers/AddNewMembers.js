@@ -20,6 +20,7 @@ class AddNewMembers extends Component{
         let unique = this.props.getUniqueId();
         this.setState({id:unique, name:'', phone:''});
         console.log(`id is ${e.id}, name is ${e.name} and phone is ${e.phone}`);
+        alert(`${this.state.name} is added successfully`);
         this.props.history.push("/");
     }
 

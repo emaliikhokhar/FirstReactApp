@@ -14,29 +14,33 @@ class App extends Component {
     }
     console.log("Constructor Calling");
   }
-  
+
 
   deleteHandler = (memberID) => {
     let ml = this.state.MembersList;
+    console.log(ml);
     let mIndex = 0;
     ml.forEach((member, index) => {
       if(memberID === member.id)
       {
         mIndex = index;
       }
-      let memList = ml;
-      memList.splice(mIndex, 1);
-      this.setState({ MembersList:memList });
-    });
+    })
+    
+    let memList = ml;
+    memList.splice(mIndex, 1);
+    this.setState({ MembersList:memList });;
   }
 
   addNewMemberHandler = (newMember) => {
     let memList = this.state.MembersList;
     if (memList.length > 0) {
-      newMember.id = memList[memList.length - 1].id + 1;
+      newMember.id = memList.length + 1;
+      console.log(newMember.id);
     }
     else {
       newMember.id = 1;
+      console.log(newMember.id);
     }
     memList.push(newMember);
     this.setState({ MembersList: memList });
