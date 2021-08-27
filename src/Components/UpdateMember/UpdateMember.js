@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import App from "../../App"
 import Header from "../Header/Header"
-import "./AddNewMembers.css"
+import "./UpdateMember.css"
+import Member from "../Members/Members"
 
-class AddNewMembers extends Component{
+class UpdateMember extends Component{
 
     constructor(){
         super();
@@ -14,16 +16,17 @@ class AddNewMembers extends Component{
         }
     }
 
+    
+
     formSubmitted = (e) => {
         e.preventDefault();
-        this.props.addNewMemberHandler(this.state);
+        this.props.updateHandler(this.state);
         this.setState({id:0, name:'', phone:''});
-        console.log(`id is ${this.state.id}, name is ${this.state.name} and phone is ${this.state.phone}`);
-        console.log(e);
+        console.log(`UPDATED: id is ${this.state.id}, name is ${this.state.name} and phone is ${this.state.phone}`);
         this.props.history.push("/");
     }
 
-    inputChangeHandler = (event) => {
+    updateMemberHandler = (event) => {
         const state = this.state;
         state[event.target.name] = event.target.value;
         this.setState(event);
@@ -33,14 +36,14 @@ class AddNewMembers extends Component{
     render(){
         return(
             <div>
-                <Header heading="Add Member"/>
+                <Header heading="Update Member"/>
                 <div className="container">
                     <form onSubmit={this.formSubmitted.bind(this)}>
-                        <input type="text" id="name" name="name" placeholder="Full Name" onChange={this.inputChangeHandler}/>
+                        <input type="text" id="name" name="name" value={this.props.name} placeholder="Full Name" onChange={this.updateMemberHandler}/>
                         <br/>
-                        <input type="text" id="phone" name="phone" placeholder="Phone Number" onChange={this.inputChangeHandler}/>
+                        <input type="text" id="phone" name="phone" placeholder="Phone Number" onChange={this.updateMemberHandler}/>
                         <br/>
-                        <input type="submit" value="Add"/>
+                        <input type="submit" value="Update"/>
                         <br/>
                         <Link to="/">
                             <button className="btn">Back</button>
@@ -52,4 +55,4 @@ class AddNewMembers extends Component{
     }
 }
 
-export default AddNewMembers;
+export default UpdateMember;

@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import Members from "./Components/Members/Members"
 import Header from './Components/Header/Header';
 import AddNewMembers from './Components/AddNewMembers/AddNewMembers';
+import UpdateMember from './Components/UpdateMember/UpdateMember'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 
 class App extends Component {
@@ -15,6 +16,25 @@ class App extends Component {
     console.log("Constructor Calling");
   }
 
+  updateHandler = (memberID, memberName, memberPhone) => {
+    let memList = this.state.MembersList;
+    let mIndex = null;
+    memList.forEach((member, index) => {
+      if(memberID === member.id)
+      {
+        mIndex = index;
+      }
+    })
+
+    console.log(`name before = ${memList[mIndex].name} and phone = ${memList[mIndex].phone}`);
+    if(mIndex != null)
+    {
+      memList[mIndex].name = memberName;
+      memList[mIndex].phone = memberPhone;
+    }
+    console.log(`name after = ${memList[mIndex].name} and phone = ${memList[mIndex].phone}`);
+    this.setState({ MembersList:memList });;
+  }
 
   deleteHandler = (memberID) => {
     let ml = this.state.MembersList;
@@ -56,8 +76,9 @@ class App extends Component {
 
       <Router>
         <div>
-          <Route exact path="/" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler}/>}/>
-          <Route exact path="/add" render={({history},props)=><AddNewMembers history={history} {...props} addNewMemberHandler={this.addNewMemberHandler} getUniqueId={this.getUniqueId}/>}/>
+          <Route exact path="/" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler} updateHandler={this.updateHandler}/>}/>
+          <Route exact path="/add" render={({history},props)=><AddNewMembers history={history} {...props} addNewMemberHandler={this.addNewMemberHandler}/>}/>
+          <Route exact path="/update" render={({history},props)=><UpdateMember history={history} {...props} updateHandler ={this.updateHandler}/>}/>
         </div>
       </Router>
 

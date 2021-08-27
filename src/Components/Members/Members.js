@@ -10,6 +10,10 @@ class Members extends Component {
         this.props.deleteHandler(memberID);
     }
 
+    updateHandler = (memberID, memberName, memberPhone) => {
+        this.props.updateHandler(memberID, memberName, memberPhone);
+    }
+
     render() {
         return (
             <div>
@@ -31,6 +35,9 @@ class Members extends Component {
                         <div key={mem.id} className="container">
                             <div className="td-data">{mem.name}</div>
                             <div className="td-data">{mem.phone}</div>
+                            <Link to="/update">
+                            <button className="update-btn" onClick={this.updateHandler.bind(this, mem.id, mem.name, mem.phone)} namePhone={this.namePhone}>Update</button>
+                            </Link>
                             <button className="del-btn" onClick={this.deleteHandler.bind(this, mem.id)}>Delete</button>
                         </div>
                     ))
