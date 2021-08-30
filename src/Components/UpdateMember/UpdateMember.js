@@ -14,16 +14,14 @@ class UpdateMember extends Component{
             name: this.props.name,
             phone: this.props.phone
         }
-        alert(`TO BE UPDATED: id is ${this.state.id}, name is ${this.props.name} and phone is ${this.state.phone}`);
-        
+       
     }
 
     formSubmitted = (e) => {
         e.preventDefault();
         this.props.updateHandler(this.state);
-        this.setState({id:0, name:'', phone:''});
-        console.log(`UPDATED: id is ${this.state.id}, name is ${this.state.name} and phone is ${this.state.phone}`);
-        this.props.history.push("/");
+        this.setState({id:0, name:this.state.name, phone:this.state.phone});
+        this.props.history.push("/homepage");
     }
 
     updateMemberHandler = (event) => {
@@ -39,13 +37,13 @@ class UpdateMember extends Component{
                 <Header heading="Update Member"/>
                 <div className="container">
                     <form onSubmit={this.formSubmitted.bind(this)}>
-                        <input type="text" id="name" name="name" value={this.state.name} placeholder="Full Name" onChange={this.updateMemberHandler}/>
+                        <input type="text" id="name" name="name" placeholder="Full Name" onChange={this.updateMemberHandler}/>
                         <br/>
                         <input type="text" id="phone" name="phone" placeholder="Phone Number" onChange={this.updateMemberHandler}/>
                         <br/>
                         <input type="submit" value="Update"/>
                         <br/>
-                        <Link to="/">
+                        <Link to="/homepage">
                             <button className="btn">Back</button>
                         </Link>
                     </form>

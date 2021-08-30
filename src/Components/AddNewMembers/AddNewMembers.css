@@ -9,6 +9,17 @@ input[type=text] {
     font-size: 15px;
 }
 
+input[type=password] {
+    width: 250px;
+    height: 35px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    background-color: lightgray;
+    font-size: 15px;
+}
+
 
 input[type=submit] {
     width: 200px;

@@ -39,7 +39,7 @@ function Count() {
                     <button className="button" onClick={resetHandler}>Reset</button>
                 </div>
                 <div>
-                    <Link to="/">
+                    <Link to="/homepage">
                         <button className="button">Back</button>
                     </Link>
                 </div>

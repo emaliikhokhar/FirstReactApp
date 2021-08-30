@@ -7,6 +7,7 @@ import UpdateMember from './Components/UpdateMember/UpdateMember'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Count from './Components/Count/Count';
 import UseReference from './Components/UseReference/UseReference'
+import Login from './Components/Login/Login'
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class App extends Component {
     console.log("Constructor Calling");
   }
 
-  updateHandler = (memberID, memberName, memberPhone) => {
+  updateHandler = (memberID) => {
     let memList = this.state.MembersList;
     let mIndex = null;
     memList.forEach((member, index) => {
@@ -27,13 +28,10 @@ class App extends Component {
         mIndex = index;
       }
     })
-
-    if(mIndex != null)
-    {
-      memList[mIndex].name = memberName;
-      memList[mIndex].phone = memberPhone;
-    }
-    this.setState({ MembersList:memList });;
+    let temp = {id: memberID.id, name: memberID.name, phone: memberID.phone};
+    console.log("Temp is");
+    memList.splice(mIndex, 1, temp);
+    this.setState({ MembersList:memList });
   }
 
   deleteHandler = (memberID) => {
@@ -66,6 +64,10 @@ class App extends Component {
     console.log(this.state.MembersList);
   }
 
+  authenticateUser = (obj) => {
+    console.log(obj.username);
+  }
+
   getUniqueId = () => {
     return this.state.MembersList.length;
   }
@@ -76,7 +78,8 @@ class App extends Component {
 
       <Router>
         <div>
-          <Route exact path="/" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler} updateHandler={this.updateHandler}/>}/>
+          <Route exact path="/" render={(({history},props) => <Login authenticateUser={this.authenticateUser}/>)}/>
+          <Route exact path="/homepage" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler} updateHandler={this.updateHandler}/>}/>
           <Route exact path="/add" render={({history},props)=><AddNewMembers history={history} {...props} addNewMemberHandler={this.addNewMemberHandler}/>}/>
           <Route exact path="/update" render={({history},props)=><UpdateMember history={history} {...props} updateHandler ={this.updateHandler}/>}/>
           <Route exact path="/usereference" render={({history},props)=><UseReference history={history} {...props}/>}/>

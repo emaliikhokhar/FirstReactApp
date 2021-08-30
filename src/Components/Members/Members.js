@@ -11,7 +11,7 @@ class Members extends Component {
     }
 
     updateHandler = (memberID, memberName, memberPhone) => {
-        console.log(`id is ${memberID}, name is ${memberName}, phone is ${memberPhone}`)
+        console.log(`in members: id is ${memberID}, name is ${memberName}, phone is ${memberPhone}`)
         this.props.updateHandler(memberID, memberName, memberPhone);
     }
 

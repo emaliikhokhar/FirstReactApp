@@ -18,9 +18,7 @@ class AddNewMembers extends Component{
         e.preventDefault();
         this.props.addNewMemberHandler(this.state);
         this.setState({id:0, name:'', phone:''});
-        console.log(`id is ${this.state.id}, name is ${this.state.name} and phone is ${this.state.phone}`);
-        console.log(e);
-        this.props.history.push("/");
+        this.props.history.push("/homepage");
     }
 
     inputChangeHandler = (event) => {
@@ -42,7 +40,7 @@ class AddNewMembers extends Component{
                         <br/>
                         <input type="submit" value="Add"/>
                         <br/>
-                        <Link to="/">
+                        <Link to="/homepage">
                             <button className="btn">Back</button>
                         </Link>
                     </form>
