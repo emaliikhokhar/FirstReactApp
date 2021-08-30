@@ -6,6 +6,7 @@ import AddNewMembers from './Components/AddNewMembers/AddNewMembers';
 import UpdateMember from './Components/UpdateMember/UpdateMember'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Count from './Components/Count/Count';
+import UseReference from './Components/UseReference/UseReference'
 
 class App extends Component {
   constructor() {
@@ -27,13 +28,11 @@ class App extends Component {
       }
     })
 
-    console.log(`name before = ${memList[mIndex].name} and phone = ${memList[mIndex].phone}`);
     if(mIndex != null)
     {
       memList[mIndex].name = memberName;
       memList[mIndex].phone = memberPhone;
     }
-    console.log(`name after = ${memList[mIndex].name} and phone = ${memList[mIndex].phone}`);
     this.setState({ MembersList:memList });;
   }
 
@@ -80,6 +79,7 @@ class App extends Component {
           <Route exact path="/" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler} updateHandler={this.updateHandler}/>}/>
           <Route exact path="/add" render={({history},props)=><AddNewMembers history={history} {...props} addNewMemberHandler={this.addNewMemberHandler}/>}/>
           <Route exact path="/update" render={({history},props)=><UpdateMember history={history} {...props} updateHandler ={this.updateHandler}/>}/>
+          <Route exact path="/usereference" render={({history},props)=><UseReference history={history} {...props}/>}/>
           <Route exact path="/count" render={({history}, props)=><Count history={history} {...props} />} />
         </div>
       </Router>

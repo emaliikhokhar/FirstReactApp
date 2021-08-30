@@ -11,6 +11,7 @@ class Members extends Component {
     }
 
     updateHandler = (memberID, memberName, memberPhone) => {
+        console.log(`id is ${memberID}, name is ${memberName}, phone is ${memberPhone}`)
         this.props.updateHandler(memberID, memberName, memberPhone);
     }
 
@@ -29,6 +30,11 @@ class Members extends Component {
                     <Link to="/count">
                         <div>
                             <button className="button">Count</button>
+                        </div>
+                    </Link>
+                    <Link to="/usereference">
+                        <div>
+                            <button className="button">useRef</button>
                         </div>
                     </Link>
                 </div>

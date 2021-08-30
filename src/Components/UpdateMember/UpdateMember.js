@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import App from "../../App"
 import Header from "../Header/Header"
@@ -7,16 +7,16 @@ import Member from "../Members/Members"
 
 class UpdateMember extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             id: 0,
-            name: '',
-            phone: ''
+            name: this.props.name,
+            phone: this.props.phone
         }
+        alert(`TO BE UPDATED: id is ${this.state.id}, name is ${this.props.name} and phone is ${this.state.phone}`);
+        
     }
-
-    
 
     formSubmitted = (e) => {
         e.preventDefault();
@@ -39,7 +39,7 @@ class UpdateMember extends Component{
                 <Header heading="Update Member"/>
                 <div className="container">
                     <form onSubmit={this.formSubmitted.bind(this)}>
-                        <input type="text" id="name" name="name" value={this.props.name} placeholder="Full Name" onChange={this.updateMemberHandler}/>
+                        <input type="text" id="name" name="name" value={this.state.name} placeholder="Full Name" onChange={this.updateMemberHandler}/>
                         <br/>
                         <input type="text" id="phone" name="phone" placeholder="Phone Number" onChange={this.updateMemberHandler}/>
                         <br/>
