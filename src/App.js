@@ -8,6 +8,7 @@ import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Count from './Components/Count/Count';
 import UseReference from './Components/UseReference/UseReference'
 import Login from './Components/Login/Login'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,6 @@ class App extends Component {
       MembersList: [],
       head: true
     }
-    console.log("Constructor Calling");
   }
 
   updateHandler = (memberID) => {
@@ -29,7 +29,6 @@ class App extends Component {
       }
     })
     let temp = {id: memberID.id, name: memberID.name, phone: memberID.phone};
-    console.log("Temp is");
     memList.splice(mIndex, 1, temp);
     this.setState({ MembersList:memList });
   }
@@ -65,7 +64,17 @@ class App extends Component {
   }
 
   authenticateUser = (obj) => {
-    console.log(obj.username);
+    let choice = false;
+    if (obj.username == "emaliekhokhar" && obj.password == "123")
+    {
+      choice = true;
+      alert("Authenticated");
+    }
+    else
+    {
+      alert("Wrong Password");
+    }
+    return choice;
   }
 
   getUniqueId = () => {

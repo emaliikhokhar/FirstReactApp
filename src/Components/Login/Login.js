@@ -1,4 +1,4 @@
-import React, { Component, Link } from 'react'
+import React, { Component, Link, Redirect } from 'react'
 
 class Login extends Component {
 
@@ -12,7 +12,7 @@ class Login extends Component {
 
     authentication = (e) => {
         e.preventDefault();
-        this.props.authenticateUser(this.state);
+        const choice = this.props.authenticateUser(this.state);
         this.setState({id:0, name:'', phone:''});
     }
 
