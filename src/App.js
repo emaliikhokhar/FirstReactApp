@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import AddNewMembers from './Components/AddNewMembers/AddNewMembers';
 import UpdateMember from './Components/UpdateMember/UpdateMember'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
+import Count from './Components/Count/Count';
 
 class App extends Component {
   constructor() {
@@ -79,6 +80,7 @@ class App extends Component {
           <Route exact path="/" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler} updateHandler={this.updateHandler}/>}/>
           <Route exact path="/add" render={({history},props)=><AddNewMembers history={history} {...props} addNewMemberHandler={this.addNewMemberHandler}/>}/>
           <Route exact path="/update" render={({history},props)=><UpdateMember history={history} {...props} updateHandler ={this.updateHandler}/>}/>
+          <Route exact path="/count" render={({history}, props)=><Count history={history} {...props} />} />
         </div>
       </Router>
 

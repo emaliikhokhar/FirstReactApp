@@ -20,11 +20,18 @@ class Members extends Component {
                 <div>
                     <Header heading="Society" />
                 </div>
-                <Link to="/add">
-                    <div className="btn-container">
-                        <button className="button">Add New Donor</button>
-                    </div>
-                </Link>
+                <div className="outer-btn">
+                    <Link to="/add">
+                        <div className="btn-container">
+                            <button className="button">Add New Donor</button>
+                        </div>
+                    </Link>
+                    <Link to="/count">
+                        <div>
+                            <button className="button">Count</button>
+                        </div>
+                    </Link>
+                </div>
                 <div className="header-container">
                     <div className="td-header name">Name</div>
                     <div className="td-header phone">Phone</div>
@@ -36,7 +43,7 @@ class Members extends Component {
                             <div className="td-data">{mem.name}</div>
                             <div className="td-data">{mem.phone}</div>
                             <Link to="/update">
-                            <button className="update-btn" onClick={this.updateHandler.bind(this, mem.id, mem.name, mem.phone)} namePhone={this.namePhone}>Update</button>
+                                <button className="update-btn" onClick={this.updateHandler.bind(this, mem.id, mem.name, mem.phone)} namePhone={this.namePhone}>Update</button>
                             </Link>
                             <button className="del-btn" onClick={this.deleteHandler.bind(this, mem.id)}>Delete</button>
                         </div>

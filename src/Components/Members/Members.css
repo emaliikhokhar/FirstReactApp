@@ -7,7 +7,6 @@
     border-radius: 4px;
     border: none;
     font-size: 20px;
-    
 }
 
 .btn-container {
@@ -33,6 +32,14 @@
     border-radius: 4px;
     border: none;
     font-size: 20px;
+}
+
+.outer-btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 15px;
+    column-gap: 20px;
 }
 
 .update-btn{
