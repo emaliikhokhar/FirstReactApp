@@ -80,3 +80,10 @@
 .phone{
     margin-left: 0px;
 }
+
+@media(max-width: 800px) {
+    .outer-btn {
+        display: block;
+    }
+
+}
