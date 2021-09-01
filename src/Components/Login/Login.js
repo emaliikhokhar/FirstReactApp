@@ -14,6 +14,7 @@ class Login extends Component {
         e.preventDefault();
         const choice = this.props.authenticateUser(this.state);
         this.setState({id:0, name:'', phone:''});
+        this.props.history.push("/homepage");
     }
 
     inputChangeHandler = (event) => {

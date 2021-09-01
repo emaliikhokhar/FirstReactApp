@@ -88,7 +88,7 @@ class App extends Component {
 
       <Router>
         <div>
-          <Route exact path="/" render={(({history},props) => <Login authenticateUser={this.authenticateUser}/>)}/>
+          <Route exact path="/"  render={(({history},props) => <Login  history={history} authenticateUser={this.authenticateUser}/>)}/>
           <Route exact path="/homepage" render={(props)=><Members {...props} members={this.state.MembersList} deleteHandler={this.deleteHandler} updateHandler={this.updateHandler}/>}/>
           <Route exact path="/add" render={({history},props)=><AddNewMembers history={history} {...props} addNewMemberHandler={this.addNewMemberHandler}/>}/>
           <Route exact path="/update" render={({history},props)=><UpdateMember history={history} {...props} updateHandler ={this.updateHandler}/>}/>
