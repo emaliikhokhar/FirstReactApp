@@ -9,6 +9,7 @@ import Count from './Components/Count/Count';
 import UseReference from './Components/UseReference/UseReference'
 import Login from './Components/Login/Login'
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import DonorsArranged from './Components/DonorsArranged/DonorsArranged'
 
 class App extends Component {
   constructor() {
@@ -93,6 +94,7 @@ class App extends Component {
           <Route exact path="/update" render={({history},props)=><UpdateMember history={history} {...props} updateHandler ={this.updateHandler}/>}/>
           <Route exact path="/usereference" render={({history},props)=><UseReference history={history} {...props}/>}/>
           <Route exact path="/count" render={({history}, props)=><Count history={history} {...props} />} />
+          <Route exact path="/donorsarranged" render={({history}, props) => <DonorsArranged history={history} {...props}/>}/>
         </div>
       </Router>
 
