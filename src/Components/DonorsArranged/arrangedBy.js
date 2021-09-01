@@ -17,7 +17,7 @@ const arrangedByMember = Member => {
                 <div className="body">
                     
                     <div>
-                        <Member incrementHandle={this.incrementHandle} name={this.props.name} donorsArr = {this.state.arranged} />
+                        <Member incHandle={this.incrementHandle} donorsArr = {this.state.arranged} />
                     </div>
             
                 </div>
