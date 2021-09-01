@@ -20,7 +20,6 @@ class UpdateMember extends Component{
     formSubmitted = (e) => {
         e.preventDefault();
         this.props.updateHandler(this.state);
-        console.log(`shhhhhhh ${this.state.id}, name ${this.state.name} phone ${this.state.phone}`);
         this.setState({id:this.state.id, name:this.state.name, phone:this.state.phone});
         this.props.history.push("/homepage");
     }
